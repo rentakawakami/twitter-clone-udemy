@@ -14,11 +14,12 @@ function Timeline() {
     //データを持ってくる処理
     useEffect(() => {
         const postData = collection(db,"posts");
+        //タイムスタンプ順で並び替え
         const q = query(postData, orderBy("timestamp", "desc"));
         // getDocs(q).then((querySnapshot) => {
         // setPosts(querySnapshot.docs.map((doc) => doc.data()));
         // });
-
+        
         //リアルタイムでデータを取得
         onSnapshot(q, (querySnapshot) => {
             setPosts(querySnapshot.docs.map((doc) => doc.data()));

@@ -14,6 +14,7 @@ function TweetBox() {
         //画面がリロードされない処理
         e.preventDefault();
 
+        //この値がツイートした時に保存される
         addDoc(collection(db, "posts"), {
             key: "プログラミングチュートリアル",
             displayName: "個人開発",
@@ -36,7 +37,7 @@ function TweetBox() {
             <Avatar />
             <input 
             value={tweetmessage}
-                placeholder='今どうしている？' 
+                placeholder='いまどうしている？' 
                 type='text' 
                 onChange={(e) => setTweetMessage(e.target.value)}
             ></input>
@@ -52,7 +53,7 @@ function TweetBox() {
                 className='tweetBox_tweetButton' 
                 type='submit'
                 onClick={sendTweet}
-                >ツイートする</Button>
+                >ツイート</Button>
         </from>
     </div>
   )
